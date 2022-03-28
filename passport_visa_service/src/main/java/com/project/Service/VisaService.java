@@ -3,16 +3,16 @@ package com.project.Service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.project.Model.VisaRegistration;
-import com.project.Repository.VisaRegistrationRepo;
+import com.project.Model.Visa;
+import com.project.Repository.VisaRepo;
 
 @Service
-public class VisaRegistrationService {
+public class VisaService {
 
 	@Autowired
-	VisaRegistrationRepo repo;
+	VisaRepo repo;
 
-	public VisaRegistration visaRegistration(VisaRegistration vs) {
+	public Visa visaRegistration(Visa vs) {
 
 		String ui = "VISA-1234";
 		String s1 = ui.substring(5, 9);
@@ -52,7 +52,7 @@ public class VisaRegistrationService {
 		return repo.save(vs);
 	}
 
-	public List<VisaRegistration> findVisaRegistrationByPassportNo(String PASSPORT_NO) {
+	public List<Visa> findVisaRegistrationByPassportNo(String PASSPORT_NO) {
 
 		return repo.findVisaRegistrationByPassportNo(PASSPORT_NO);
 	}

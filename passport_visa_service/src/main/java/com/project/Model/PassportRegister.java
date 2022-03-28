@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Passport_Registration")
-public class PassportRegistration {
+public class PassportRegister {
 	
 	@Id
 	private String TEMPORARY_NO;
@@ -26,7 +26,7 @@ public class PassportRegistration {
 	private Date DATE_OF_EXPIRY;
 	@OneToOne
 	@JoinColumn(name="USER_ID")
-	private UserRegistration USER_REGISTRATION;
+	private User USER_REGISTRATION;
 	@OneToOne(mappedBy="Passport_Registration")
 	
 	public String getTEMPORARY_NO() {

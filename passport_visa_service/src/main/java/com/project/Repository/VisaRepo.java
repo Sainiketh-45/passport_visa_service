@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.project.Model.VisaRegistration;
+import com.project.Model.Visa;
 
 @Repository
-public interface VisaRegistrationRepo extends JpaRepository<VisaRegistration, String> {
+public interface VisaRepo extends JpaRepository<Visa, String> {
 
 	@Query(value = "select a from VisaRegistration a where a.PASSPORT_NO=:PASSPORT_NO")
-	List<VisaRegistration> findVisaRegistrationByPassportNo(@Param("PASSPORT_NO") String PASSPORT_NO);
+	List<Visa> findVisaRegistrationByPassportNo(@Param("PASSPORT_NO") String PASSPORT_NO);
 
 	
 

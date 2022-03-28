@@ -20,7 +20,7 @@ public class PassportFees {
 
 	@OneToOne
 	@JoinColumn(name = "TEMPORARY_NO")
-	private PassportRegistration Passport_Registration;
+	private PassportRegister Passport_Registration;
 
 	@JsonIgnore
 	public String getTEMPORARY_NO() {
@@ -37,11 +37,11 @@ public class PassportFees {
 		PASSPORT_NO = pASSPORT_NO;
 	}
 
-	public PassportRegistration getPassport_Registration() {
+	public PassportRegister getPassport_Registration() {
 		return Passport_Registration;
 	}
 
-	public void setPassport_Registration(PassportRegistration passport_Registration) {
+	public void setPassport_Registration(PassportRegister passport_Registration) {
 		Passport_Registration = passport_Registration;
 	}
 

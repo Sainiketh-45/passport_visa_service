@@ -14,11 +14,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "VISA_REGISTRATION")
-public class VisaRegistration {
+public class Visa {
 
 	@Id
-
-	private String VISA_NO;
+    private String VISA_NO;
+	
 	@NotNull(message = "errorCode 621")
 	@NotEmpty(message = "errorCode 621")
 	private String PASSPORT_NO;
@@ -44,13 +44,13 @@ public class VisaRegistration {
 
 	@OneToOne
 	@JoinColumn(name = "USER_ID")
-	private UserRegistration USER_REGISTRATION;
+	private User USER_REGISTRATION;
 
-	public UserRegistration getUSER_REGISTRATION() {
+	public User getUSER_REGISTRATION() {
 		return USER_REGISTRATION;
 	}
 
-	public void setUSER_REGISTRATION(UserRegistration uSER_REGISTRATION) {
+	public void setUSER_REGISTRATION(User uSER_REGISTRATION) {
 		USER_REGISTRATION = uSER_REGISTRATION;
 	}
 
@@ -102,7 +102,7 @@ public class VisaRegistration {
 		DATE_OF_EXPIRY = dATE_OF_EXPIRY;
 	}
 
-	public VisaRegistration(String pASSPORT_NO) {
+	public Visa(String pASSPORT_NO) {
 		super();
 		PASSPORT_NO = pASSPORT_NO;
 	}
@@ -115,9 +115,9 @@ public class VisaRegistration {
 		REGISTRATION_COST = rEGISTRATION_COST;
 	}
 
-	public VisaRegistration(String vISA_NO, String pASSPORT_NO, String dESTINATION, String oCCUPATION,
+	public Visa(String vISA_NO, String pASSPORT_NO, String dESTINATION, String oCCUPATION,
 			Date dATE_OF_APPLY, Date dATE_OF_ISSUE, Date dATE_OF_EXPIRY, int rEGISTRATION_COST,
-			UserRegistration uSER_REGISTRATION) {
+			User uSER_REGISTRATION) {
 		super();
 		VISA_NO = vISA_NO;
 		PASSPORT_NO = pASSPORT_NO;
@@ -130,11 +130,11 @@ public class VisaRegistration {
 		USER_REGISTRATION = uSER_REGISTRATION;
 	}
 
-	public VisaRegistration() {
+	public Visa() {
 		super();
 	}
 
-	public VisaRegistration(String string, String string2, String string3, int i, String string4, String string5,
+	public Visa(String string, String string2, String string3, int i, String string4, String string5,
 			String string6, String string7, String string8) {
 		// TODO Auto-generated constructor stub
 	}

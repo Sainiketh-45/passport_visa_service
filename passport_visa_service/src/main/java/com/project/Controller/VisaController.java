@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ExceptionHandling.PVSException;
 
-import com.project.Model.VisaRegistration;
+import com.project.Model.Visa;
 
-import com.project.Service.VisaRegistrationService;
+import com.project.Service.VisaService;
 
 @RestController
 @RequestMapping("/VisaRegistration")
@@ -27,16 +27,16 @@ import com.project.Service.VisaRegistrationService;
 public class VisaController {
 
 	@Autowired
-	VisaRegistrationService service;
+	VisaService service;
 
 	// ADDING VISA DETAILS
 
 	@PostMapping("/addVisaRegistration")
-	public ResponseEntity<VisaRegistration> addVisaRegistration(@Validated @RequestBody VisaRegistration vs) {
+	public ResponseEntity<Visa> addVisaRegistration(@Validated @RequestBody Visa vs) {
 
-		VisaRegistration obj = service.visaRegistration(vs);
+		Visa obj = service.visaRegistration(vs);
 
-		return new ResponseEntity<VisaRegistration>(obj, HttpStatus.OK);
+		return new ResponseEntity<Visa>(obj, HttpStatus.OK);
 
 	}
 
@@ -44,10 +44,10 @@ public class VisaController {
 
 	@GetMapping("/fetchVisaDetails/{PASSPORT_NO}")
 
-	public ResponseEntity<List<VisaRegistration>> fetchByPassportNo(@PathVariable String PASSPORT_NO) {
+	public ResponseEntity<List<Visa>> fetchByPassportNo(@PathVariable String PASSPORT_NO) {
 
 		String status = null;
-		List<VisaRegistration> obj = service.findVisaRegistrationByPassportNo(PASSPORT_NO);
+		List<Visa> obj = service.findVisaRegistrationByPassportNo(PASSPORT_NO);
 
 		if (!obj.isEmpty()) {
 			status = "Passport is available";
@@ -57,7 +57,7 @@ public class VisaController {
 
 		}
 
-		return new ResponseEntity<List<VisaRegistration>>(obj, HttpStatus.OK);
+		return new ResponseEntity<List<Visa>>(obj, HttpStatus.OK);
 	}
 
 }
